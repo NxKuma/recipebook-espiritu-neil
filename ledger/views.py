@@ -66,7 +66,7 @@ def recipe(request):
             }
         ]
     }
-    return render(request, "recipe.html", ctx)
+    return render(request, "recipes.html", ctx)
 
 def recipes_1(request):
     ctx = {
@@ -95,7 +95,7 @@ def recipes_1(request):
         ],
         "link": "/recipe/1"
     }
-    return render(request, "recipes.html", ctx)
+    return render(request, "recipe.html", ctx)
 
     
     
@@ -135,7 +135,7 @@ def recipes_2(request):
         ],
         "link": "/recipe/2"
     }
-    return render(request, "recipes.html", ctx)
+    return render(request, "recipe.html", ctx)
 
     
 
