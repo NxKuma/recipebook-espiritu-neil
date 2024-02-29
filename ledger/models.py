@@ -20,7 +20,7 @@ class Recipe(models.Model):
         return reverse('ledger:recipe-detail', args=[self.pk])
 
 class RecipeIngredient(models.Model):
-    quantity = models.PositiveIntegerField()
+    quantity = models.FloatField()
     ingredient = models.ForeignKey(
         'Ingredient',
         on_delete=models.CASCADE,
@@ -31,4 +31,7 @@ class RecipeIngredient(models.Model):
         on_delete=models.CASCADE,
         related_name='ingredient'
     )
+
+    def __str__(self):
+        return '{} {}'.format(self.quantity.__str__(), self.ingredient.__str__())
 

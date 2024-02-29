@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% for recipe in recipes%}
+    {% for recipe in object_list%}
         <ul>
-            <li><h2><a href="/ledger{{ recipe.link }}">{{ recipe.name }}</a></h2></li>
+            <li><h2><a href="{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></h2></li>
         </ul>
     {% endfor %}
 {% endblock %}

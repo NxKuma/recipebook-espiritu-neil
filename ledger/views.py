@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.views.generic.list import ListView
 
-from .models import Recipe, Ingredient
+from .models import Recipe, RecipeIngredient
 
 def recipes(request):
     recipe = Recipe.objects.all()
@@ -10,7 +10,7 @@ def recipes(request):
     return render(request, "recipes.html", ctx)
 
 def recipe(request):
-    ingredients = Ingredient.objects.filter(recipe_recipe_name=Recipe.name)
+    ingredients = RecipeIngredient.objects.filter(recipe__recipe__name=Recipe.recipe.str)
     ctx = { "ingredients": ingredients}
     return render(request, "recipe.html", ctx)
 
@@ -20,5 +20,5 @@ class RecipeListView(ListView):
 
 
 class IngredientsListView(ListView):
-    model = Ingredient
+    model = RecipeIngredient
     template_name = "recipe.html"
