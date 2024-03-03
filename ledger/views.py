@@ -1,16 +1,16 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 
-from .models import Recipe, RecipeIngredient
+from .models import Recipe, Ingredient
 
 def recipes(request):
     recipe = Recipe.objects.all()
     ctx = { "recipes": recipe}
     return render(request, "recipes.html", ctx)
 
-def recipe(request):
-    ingredients = RecipeIngredient.objects.filter(recipe__recipe__name=Recipe.recipe.str)
+def recipe(request, pk):
+    ingredients = Ingredient.objects.filter(recipe__recipe__name="Recipe {}".format(pk))
     ctx = { "ingredients": ingredients}
     return render(request, "recipe.html", ctx)
 
@@ -18,7 +18,6 @@ class RecipeListView(ListView):
     model = Recipe
     template_name = "recipes.html"    
 
-
-class IngredientsListView(ListView):
-    model = RecipeIngredient
+class RecipeDetailView(DetailView):
+    model = Recipe
     template_name = "recipe.html"
