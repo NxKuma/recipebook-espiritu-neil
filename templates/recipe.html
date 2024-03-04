@@ -4,7 +4,9 @@
 {% block content %}
     <h2>{{ recipe.name }}</h2>
 
-    {% for ingredient in recipe.ingredients.all %}
-        <p> {{ ingredient.ingredient.name }} </p>
-    {% endfor %}    
+    <ul>
+        {% for ingredient in recipe.ingredients.all %}
+            <li> {{ ingredient.ingredient.name }} : {{ ingredient.quantity }} </li>
+        {% endfor %} 
+    </ul>
 {% endblock %}

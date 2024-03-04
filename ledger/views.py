@@ -18,6 +18,7 @@ class RecipeListView(ListView):
     model = Recipe
     template_name = "recipes.html"    
 
+
 class RecipeDetailView(DetailView):
     model = Recipe
     template_name = "recipe.html"
