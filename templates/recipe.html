@@ -1,9 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %} {{ name }} {% endblock %}
 {% block content %}
-    <h2>{{ recipe.name }}</h2>
-    <h6>by {{ recipe.author }}</h6>
+    <h1>{{ recipe.name }} Details</h1>
+    <h3>by {{ recipe.author }}</h3>
 
     <ul>
         {% for ingredient in recipe.ingredients.all %}

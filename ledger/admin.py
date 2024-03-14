@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from .models import Recipe, RecipeIngredient, Ingredient
 
+
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
 
@@ -16,4 +17,3 @@ class RecipeAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Recipe, RecipeAdmin)
-
