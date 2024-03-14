@@ -3,7 +3,14 @@
     <title>{% block title %}Recipe Book{% endblock %}</title>
 </head>
 <body>
-    <h1>Recipe Book</a></h1>
+    <header>
+        <h1>Recipe Book</h1>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">LOGOUT</a>
+        {% else %}
+            <a href="{% url 'login' %}">LOGIN</a>
+        {% endif %}
+    </header>
     <div id="content">
         {% block content %}{% endblock %}
     </div>

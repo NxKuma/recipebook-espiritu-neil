@@ -1,16 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    {% if request.user.is_authenticated %}
-        <h1> Hello {{ request.user.name }} </h1>
-        <form action="{% url 'logout' %}" method="POST">
-            {% csrf_token %}
-            <button type="submit">LOGOUT</button>
-        </form>
-    {% else %}
-        <h1> Hello World </h1>
-        <a href="{% url 'login' %}">LOGIN</a>
-    {% endif %}
 
     {% for recipe in object_list%}
         <ul>
